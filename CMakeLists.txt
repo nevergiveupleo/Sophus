@@ -32,7 +32,7 @@ set( Sophus_INCLUDE_DIR ${PROJECT_SOURCE_DIR} )
 #SET (INCLUDE_DIRS "../eigen3.1/")
 find_package( Eigen3 REQUIRED )
 INCLUDE_DIRECTORIES( ${EIGEN3_INCLUDE_DIR} )
-SET( Sophus_INCLUDE_DIR ${Sophus_INCLUDE_DIR} ${EIGEN3_INCLUDE_DIR} )
+# SET( Sophus_INCLUDE_DIR ${Sophus_INCLUDE_DIR} ${EIGEN3_INCLUDE_DIR} )
 
 SET (SOURCE_DIR "sophus")
 SET (CLASSES  so2
@@ -76,7 +76,7 @@ ADD_TEST(test_sim3 test_sim3)
 GET_TARGET_PROPERTY( FULL_LIBRARY_NAME ${PROJECT_NAME} LOCATION )
 set( Sophus_LIBRARIES ${Sophus_LIBRARIES} ${FULL_LIBRARY_NAME} )
 set( Sophus_LIBRARY_DIR ${PROJECT_BINARY_DIR} )
-
+SET( Sophus_INCLUDE_DIR ${CMAKE_INSTALL_PREFIX}/include )
 ################################################################################
 # Create the SophusConfig.cmake file for other cmake projects.
 CONFIGURE_FILE( ${CMAKE_CURRENT_SOURCE_DIR}/SophusConfig.cmake.in
